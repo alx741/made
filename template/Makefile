@@ -2,10 +2,15 @@
 # https://github.com/alx741/made
 #
 # Replace FILE with your filename
+#
+# Dependencies:
+# 	Compiler
 
 
-FILE.ext: FILE.ext
+FILE=your_file
+
+$(FILE).ext: $(FILE).ext
 	compiler $<
 
 clean:
-	rm *.ext
+	rm $(FILE).ext
