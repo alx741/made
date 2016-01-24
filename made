@@ -20,7 +20,7 @@ do
     fi
 done
 
-if $exists;
+if [[ "$exists" == "false" ]];
 then
     echo
     echo "[!] Template $1 does not exists"
