@@ -3,25 +3,26 @@
 TEMPLATES=(markdown latex)
 
 
-function args_validation()
+function args_parsing()
 {
-    if [[ $# -ne 1 ]];
-    then
-        echo
-        echo "Usage: $0 template"
-        echo
-        echo "Use the -l option for listing templates"
-        echo
-        exit 1
-    fi
-
-    if ! template_exists "$1";
-    then
-        echo
-        echo "[!] Template for $1 does not exists"
-        echo
-        exit 1
-    fi
+    case $1 in
+        -l|--list)
+            list_templates
+            ;;
+        -h|--help)
+            show_help
+            ;;
+        *)
+            if template_exists "$1";
+            then
+                spawn_makefile "$1"
+            else
+                echo
+                echo "[!] Template for $1 does not exists"
+                echo
+                exit 1
+            fi
+    esac
 }
 
 
@@ -41,7 +42,6 @@ function template_exists()
 
 function list_templates()
 {
-    echo
     echo "Templates:"
     echo
     for i in "${TEMPLATES[@]}"
@@ -64,19 +64,10 @@ function show_help()
 }
 
 
-function args_parsing()
+function spawn_makefile()
 {
-    case $1 in
-        -l|--list)
-            list_templates
-            ;;
-        -h|--help)
-            show_help
-            ;;
-    esac
+    echo "spawn $1"
 }
 
 
-
-args_validation "$@"
 args_parsing "$@"
