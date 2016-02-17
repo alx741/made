@@ -6,6 +6,15 @@ TEMPLATES_LOCATION=/usr/local/share/made/templates
 
 function args_parsing()
 {
+    opt_force=1
+    for i in $@
+    do
+        if [[ "$i" == "-f" ]] || [[ "$i" == "--force" ]];
+        then
+            opt_force=0
+        fi
+    done
+
     case $1 in
         -l|--list)
             list_templates
@@ -16,7 +25,7 @@ function args_parsing()
         *)
             if template_exists "$1";
             then
-                spawn_makefile "$1"
+                spawn_makefile "$1" "$opt_force"
             else
                 echo
                 echo "[!] Template for $1 does not exists"
@@ -67,7 +76,15 @@ function show_help()
 
 function spawn_makefile()
 {
-    cp "$TEMPLATES_LOCATION/$1/Makefile" ./
+    if [[ -f "./Makefile" ]] && [[ $2 -ne 0 ]]
+    then
+        echo
+        echo "[!] A Makefile already exists, use -f option to overwrite"
+        echo
+        exit 1
+    else
+        cp "$TEMPLATES_LOCATION/$1/Makefile" ./
+    fi
 }
 
 
