@@ -8,7 +8,7 @@ function args_validation()
     if [[ $# -ne 1 ]];
     then
         echo
-        echo "USE: $0 template"
+        echo "Usage: $0 template"
         echo
         echo "Use the -l option for listing templates"
         echo
@@ -35,6 +35,7 @@ function template_exists()
         fi
     done
     return 1;
+    echo
 }
 
 
@@ -47,9 +48,35 @@ function list_templates()
     do
         echo "$i"
     done
+}
+
+
+function show_help()
+{
     echo
+    echo "Usage: $0 [OPTION] [TEMPLATE]"
+    echo "Create a TEMPLATE Makefile in the current directory"
+    echo
+    echo " -l, --list        List available templates"
+    echo " -h, --help        Show this help"
+    echo " -f, --force       Overwrite existing Makefile"
+    echo
+}
+
+
+function args_parsing()
+{
+    case $1 in
+        -l|--list)
+            list_templates
+            ;;
+        -h|--help)
+            show_help
+            ;;
+    esac
 }
 
 
 
 args_validation "$@"
+args_parsing "$@"
