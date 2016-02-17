@@ -8,5 +8,18 @@ write the appropriate *Makefile*'s.
 **Made** keep a set of *Makefile*'s for very common tasks allowing you to reduce
 boilerplate.
 
+
+Install
+-------
+
+Install with:
+
+        $ sudo make install
+
+Uninstall with:
+
+        $ sudo make uninstall
+
+
 Using
 -----
