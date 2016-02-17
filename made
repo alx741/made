@@ -1,7 +1,7 @@
 #!/bin/sh
 
 TEMPLATES=(markdown latex)
-TEMPLATES_LOCATION=/usr/share/made/templates
+TEMPLATES_LOCATION=/usr/local/share/made/templates
 
 
 function args_parsing()
