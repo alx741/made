@@ -17,7 +17,7 @@ function args_validation()
     if ! template_exists "$1";
     then
         echo
-        echo "[!] Template $1 does not exists"
+        echo "[!] Template for $1 does not exists"
         echo
         exit 1
     fi
