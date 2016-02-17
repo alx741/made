@@ -1,6 +1,6 @@
 install:
 	cp -rfv made /usr/local/bin
-	mkdir /usr/local/share/made
+	mkdir -p /usr/local/share/made
 	cp -rfv templates /usr/local/share/made/templates
 
 uninstall:
