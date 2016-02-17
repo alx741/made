@@ -1,29 +1,38 @@
 #!/bin/sh
 
-
 TEMPLATES=(markdown latex)
 
-if [[ $# -ne 1 ]];
-then
-    echo
-    echo "USE: $0 template"
-    echo
-    exit 1
-fi
 
-exists=false
-for i in "${TEMPLATES[@]}"
-do
-    if [[ "$1" == "$i" ]];
+
+function args_validation()
+{
+    if [[ $# -ne 1 ]];
     then
-        exists=true
+        echo
+        echo "USE: $0 template"
+        echo
+        exit 1
     fi
-done
 
-if [[ "$exists" == "false" ]];
-then
-    echo
-    echo "[!] Template $1 does not exists"
-    echo
-    exit 1
-fi
+    if ! template_exists "$1";
+    then
+        echo
+        echo "[!] Template $1 does not exists"
+        echo
+        exit 1
+    fi
+}
+
+function template_exists()
+{
+    for i in "${TEMPLATES[@]}"
+    do
+        if [[ "$1" == "$i" ]];
+        then
+            return 0;
+        fi
+    done
+    return 1;
+}
+
+args_validation "$@"
