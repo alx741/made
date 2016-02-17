@@ -3,13 +3,14 @@
 TEMPLATES=(markdown latex)
 
 
-
 function args_validation()
 {
     if [[ $# -ne 1 ]];
     then
         echo
         echo "USE: $0 template"
+        echo
+        echo "Use the -l option for listing templates"
         echo
         exit 1
     fi
@@ -23,6 +24,7 @@ function args_validation()
     fi
 }
 
+
 function template_exists()
 {
     for i in "${TEMPLATES[@]}"
@@ -34,5 +36,20 @@ function template_exists()
     done
     return 1;
 }
+
+
+function list_templates()
+{
+    echo
+    echo "Templates:"
+    echo
+    for i in "${TEMPLATES[@]}"
+    do
+        echo "$i"
+    done
+    echo
+}
+
+
 
 args_validation "$@"
