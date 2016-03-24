@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TEMPLATES=(markdown latex)
+TEMPLATES=(markdown latex odt)
 TEMPLATES_LOCATION=/usr/local/share/made/templates
 
 
