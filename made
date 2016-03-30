@@ -6,6 +6,12 @@ TEMPLATES_LOCATION=/usr/local/share/made/templates
 
 function args_parsing()
 {
+    if [[ $# -lt 1 ]];
+    then
+        show_help
+        exit 1
+    fi
+
     opt_force=1
     for i in $@
     do
