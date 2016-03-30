@@ -64,7 +64,7 @@ function list_templates()
 function show_help()
 {
     echo
-    echo "Usage: $0 [OPTION] [TEMPLATE]"
+    echo "Usage: made [OPTION] [TEMPLATE]"
     echo "Create a TEMPLATE Makefile in the current directory"
     echo
     echo " -l, --list        List available templates"
