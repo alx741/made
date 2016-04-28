@@ -58,11 +58,11 @@ function template_exists()
 
 function list_templates()
 {
-    echo "Templates:"
+    echo "Available templates:"
     echo
-    for i in "${TEMPLATES[@]}"
+    for i in $TEMPLATES_LOCATION/*
     do
-        echo "$i"
+        echo -e "\t* $(basename $i)"
     done
 }
 
