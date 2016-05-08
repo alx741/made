@@ -1,0 +1,6 @@
+[package]
+name = "made"
+version = "0.1.0"
+authors = ["Daniel Campoverde [alx741] <alx741@riseup.net>"]
+
+[dependencies]
