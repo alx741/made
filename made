@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TEMPLATES=(markdown latex odt asciidoc)
+TEMPLATES=(markdown latex odt asciidoc gpasm)
 TEMPLATES_LOCATION=/usr/local/share/made/templates
 
 
