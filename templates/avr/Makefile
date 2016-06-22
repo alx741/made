@@ -16,7 +16,7 @@ $(FILE).hex: $(FILE).elf
 	avr-objcopy -j .text -j .data -O ihex $< $@
 
 $(FILE).elf: $(FILE).c
-	avr-gcc -g -Os -mmcu=$(MMCU) -c $< -o $@
+	avr-gcc -g -Os -mmcu=$(MMCU) $< -o $@
 
 clean:
 	rm $(FILE).elf $(FILE).hex
