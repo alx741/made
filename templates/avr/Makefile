@@ -11,12 +11,21 @@
 
 FILE=your_file
 MMCU=chip_model
+F_CPU=1000000
+
+
+CFLAGS =
+CFLAGS += -mmcu=$(MMCU)
+CFLAGS += -DF_CPU=$(F_CPU)UL
+CFLAGS += -Os
+CFLAGS += -g
+
 
 $(FILE).hex: $(FILE).elf
 	avr-objcopy -j .text -j .data -O ihex $< $@
 
 $(FILE).elf: $(FILE).c
-	avr-gcc -g -Os -mmcu=$(MMCU) $< -o $@
+	avr-gcc $(CFLAGS) $< -o $@
 
 clean:
 	rm $(FILE).elf $(FILE).hex
