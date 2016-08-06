@@ -7,10 +7,13 @@
 # Dependencies:
 # 	avr-gcc
 # 	avr-binutils
+# 	avrdude
 
 
 FILE=your_file
 MMCU=chip_model
+AVRDUDE_PART=list valid parts with `avrdude -p '?'`
+AVRDUDE_PROGRAMMER=usbasp
 F_CPU=1000000
 
 
@@ -29,3 +32,6 @@ $(FILE).elf: $(FILE).c
 
 clean:
 	rm $(FILE).elf $(FILE).hex
+
+burn:
+	avrdude -p $(AVRDUDE_PART) -c $(AVRDUDE_PROGRAMMER) -U flash:w:$(file).hex
