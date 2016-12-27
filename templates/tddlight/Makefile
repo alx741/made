@@ -4,6 +4,7 @@
 # Dependencies:
 # 	tddlight (https://github.com/alx741/tdd_traffic-light)
 
+TDDLIGHT_COMPORT=/dev/ttyUSB0
 TASK_RUNNER=doer
 BUILD_COMMAND=$(TASK_RUNNER) build
 TEST_COMMAND=$(TASK_RUNNER) test
