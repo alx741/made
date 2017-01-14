@@ -10,15 +10,15 @@ TEST_COMMAND=$(TASK_RUNNER) test
 
 export TDDLIGHT_COMPORT=/dev/ttyUSB0
 
-.PHONY: test build
-
-test:
-	tddlight y
-	$(TEST_COMMAND) && tddlight g || tddlight r
+.PHONY: build test
 
 build:
 	tddlight y
 	$(BUILD_COMMAND) && tddlight g || tddlight r
+
+test:
+	tddlight y
+	$(TEST_COMMAND) && tddlight g || tddlight r
 
 clean:
 	tddlight c
