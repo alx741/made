@@ -11,7 +11,7 @@
 #
 # Usage:
 #	- Append `runCommand "make serverReloaded"` to the 'update' function in
-#		'DevelMain.hs' of your scaffolded site, inside the 'Just' case:
+#		'DevelMain.hs' of your scaffolded site. Inside the 'Just' case:
 #
 #		Just tidStore -> do
 #			restartAppInNewThread tidStore
@@ -25,20 +25,20 @@
 PACKAGE=your_file
 
 build:
-	tddlight yellow
+	@tddlight yellow
 
-	# Halt dev server
-	tmux send-keys -t "yesod" "DevelMain.shutdown"
-	tmux send-keys -t "yesod" "Enter"
+	@# Halt dev server
+	@tmux send-keys -t "yesod" "DevelMain.shutdown"
+	@tmux send-keys -t "yesod" "Enter"
 
-	# Rebuild
+	@# Rebuild
 	stack build --fast --flag $(PACKAGE):dev --flag $(PACKAGE):library-only || tddlight red
 
-	# Restart dev server
-	tmux send-keys -t "yesod" ":l DevelMain"
-	tmux send-keys -t "yesod" "Enter"
-	tmux send-keys -t "yesod" "DevelMain.update"
-	tmux send-keys -t "yesod" "Enter"
+	@# Restart dev server
+	@tmux send-keys -t "yesod" ":l DevelMain"
+	@tmux send-keys -t "yesod" "Enter"
+	@tmux send-keys -t "yesod" "DevelMain.update"
+	@tmux send-keys -t "yesod" "Enter"
 
 
 init:
@@ -50,4 +50,4 @@ init:
 	tmux send-keys -t "yesod" "Enter"
 
 serverReloaded:
-	tddlight green
+	@tddlight green
