@@ -22,7 +22,7 @@
 #  - Recompile with `make build`
 
 
-PACKAGE=your_file
+PACKAGE=your_package
 
 build:
 	@tddlight yellow
