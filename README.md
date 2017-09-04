@@ -1,25 +1,23 @@
-Made
-====
+# Made
 
 Automating tasks like compiling markdown or latex documents can be neatly
 handled using [make](https://www.gnu.org/software/make/), but you still need to
 write the appropriate *Makefile*'s.
 
-**Made** keep a set of *Makefile*'s for very common tasks allowing you to reduce
-boilerplate.
+*Made* keeps a set of *Makefile*'s for common tasks.
 
 
-Install
--------
+## Installation
 
-Install with:
-
-        $ sudo make install
-
-Uninstall with:
-
-        $ sudo make uninstall
+    $ sudo make install
 
 
-Using
------
+## Usage
+
+- List available *Makefile*'s
+
+    $ made -l
+
+- Yank a Makefile
+
+    $ made *{template-name}*
