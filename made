@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TEMPLATES=(markdown latex odt asciidoc gpasm avr tddlight yesod)
+TEMPLATES=(markdown latex odt asciidoc gpasm avr tddlight yesod inkscape)
 TEMPLATES_LOCATION=/usr/local/share/made/templates
 
 
