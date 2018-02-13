@@ -12,19 +12,19 @@
 FILE=your_file
 MMCU=stm8
 PARTNO=stm8s103f3	# list valid parts with `stm8flash -l`
-PROGRAMMER=stlink
+PROGRAMMER=stlinkv2
 
 CFLAGS =
-CFLAGS += -l=$(MMCU)
-CFLAGS += -m=$(MMCU)
+CFLAGS += -l$(MMCU)
+CFLAGS += -m$(MMCU)
 CFLAGS += --out-fmt-ihx
 
 
-$(FILE).hex: $(FILE).c
+$(FILE).ihx: $(FILE).c
 	sdcc $(CFLAGS) $< -o $@
 
 clean:
-	rm $(FILE).hex
+	rm -f $(FILE).map $(FILE).rst $(FILE).ihx $(FILE).cdb $(FILE).asm $(FILE).rel $(FILE).lst $(FILE).lk $(FILE).sym $(FILE).ihx
 
 burn:
-	stm8flash -p $(PARTNO) -c $(PROGRAMMER) -w $(FILE).hex
+	stm8flash -p$(PARTNO) -c$(PROGRAMMER) -w $(FILE).ihx
