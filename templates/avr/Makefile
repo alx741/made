@@ -12,7 +12,7 @@
 
 FILE=your_file
 MMCU=chip_model
-AVRDUDE_PART=list valid parts with `avrdude -p '?'`
+AVRDUDE_PART=m328p	# list valid parts with `avrdude -p '?'`
 AVRDUDE_PROGRAMMER=usbasp
 F_CPU=1000000
 
