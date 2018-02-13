@@ -26,5 +26,5 @@ $(FILE).ihx: $(FILE).c
 clean:
 	rm -f $(FILE).map $(FILE).rst $(FILE).ihx $(FILE).cdb $(FILE).asm $(FILE).rel $(FILE).lst $(FILE).lk $(FILE).sym $(FILE).ihx
 
-burn:
+burn: $(FILE).ihx
 	stm8flash -p$(PARTNO) -c$(PROGRAMMER) -w $(FILE).ihx
