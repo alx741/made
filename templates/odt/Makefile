@@ -4,7 +4,7 @@
 # Replace FILE with your filename
 #
 # Dependencies:
-#	Compiler
+#	libreoffice
 
 
 FILE=your_file
