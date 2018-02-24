@@ -15,6 +15,7 @@ PARTNO=stm8s103f3	# list valid parts with `stm8flash -l`
 PROGRAMMER=stlinkv2
 
 CFLAGS =
+CFLAGS += --std-sdcc11
 CFLAGS += -l$(MMCU)
 CFLAGS += -m$(MMCU)
 CFLAGS += --out-fmt-ihx
