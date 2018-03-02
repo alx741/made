@@ -19,6 +19,7 @@ CFLAGS += --std-sdcc11
 CFLAGS += -l$(MMCU)
 CFLAGS += -m$(MMCU)
 CFLAGS += --out-fmt-ihx
+CFLAGS += -DF_CPU=2000000 # 2 Mhz - default
 
 
 $(FILE).ihx: $(FILE).c
