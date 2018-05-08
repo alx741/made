@@ -7,13 +7,13 @@
 # 	Inkscape
 
 
-OUTPUTS = out1.png \
-          out2.png \
+INPUTS = $(shell find . -type f -name '*.svg')
+OUTPUTS = $(foreach input, $(INPUTS), $(input:.svg=.png))
 
-make: $(OUTPUTS)
+all: $(OUTPUTS)
 
 %.png: %.svg
 	inkscape -D $< -e $@
 
 clean:
-	rm *.png
+	rm $(OUTPUTS)
