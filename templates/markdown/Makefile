@@ -11,7 +11,7 @@ OUTPUTS = $(foreach input, $(INPUTS), $(input:.md=.pdf))
 all: $(OUTPUTS)
 
 %.pdf: %.md
-	pandoc $< -o $@
+	pandoc -V geometry:margin=1in $< -o $@
 
 clean:
 	rm $(OUTPUTS)
