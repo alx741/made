@@ -6,8 +6,8 @@
 # Dependencies:
 # 	Dia
 
-OUTPUTS = out1.png \
-          out2.png \
+INPUTS = $(shell find . -type f -name '*.dia')
+OUTPUTS = $(foreach input, $(INPUTS), $(input:.dia=.png))
 
 all: $(OUTPUTS)
 
