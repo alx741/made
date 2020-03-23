@@ -2,16 +2,18 @@
 # https://github.com/alx741/made
 #
 # Dependencies:
-# 	Pandoc
+# 	pandoc
+# 	pandoc-citeproc
 
+CSL_FILE=iso690-author-date-en.csl
 
 INPUTS = $(shell find . -type f -name '*.md')
 OUTPUTS = $(foreach input, $(INPUTS), $(input:.md=.pdf))
 
 all: $(OUTPUTS)
 
-%.pdf: %.md
-	pandoc -V geometry:margin=1in $< -o $@
+%.pdf: %.md *.bib
+	pandoc --filter pandoc-citeproc --csl $(CSL_FILE) --number-sections -V geometry:margin=1in $< -o $@
 
 clean:
 	rm $(OUTPUTS)
