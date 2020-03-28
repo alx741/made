@@ -11,7 +11,7 @@ all: $(OUTPUTS)
 	echo $(OUTPUTS)
 
 %.pdf: %.Rmd
-	echo "library(rmarkdown);render('$<', output_format="pdf_document")" | R --vanilla
+	echo "library(rmarkdown);render('$<', output_format='pdf_document')" | R --vanilla
 
 clean:
 	rm $(OUTPUTS)

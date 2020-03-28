@@ -2,7 +2,7 @@
 
 source "$(dirname "$0")/fancy.sh"
 
-TEMPLATES=(markdown latex odt asciidoc gpasm avr stm8 tddlight yesod inkscape dia haml-sass)
+TEMPLATES=(markdown latex odt asciidoc gpasm avr stm8 tddlight yesod inkscape dia haml-sass rmarkdown)
 TEMPLATES_LOCATION=/usr/local/share/made/templates
 
 
