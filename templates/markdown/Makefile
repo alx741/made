@@ -13,7 +13,7 @@ OUTPUTS = $(foreach input, $(INPUTS), $(input:.md=.pdf))
 all: $(OUTPUTS)
 
 %.pdf: %.md *.bib
-	pandoc --filter pandoc-citeproc --csl $(CSL_FILE) --number-sections -V geometry:margin=1in $< -o $@
+	pandoc --filter pandoc-citeproc --csl $(CSL_FILE) -V geometry:margin=1in $< -o $@
 
 clean:
 	rm $(OUTPUTS)
