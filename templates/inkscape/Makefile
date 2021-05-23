@@ -13,7 +13,7 @@ OUTPUTS = $(foreach input, $(INPUTS), $(input:.svg=.png))
 all: $(OUTPUTS)
 
 %.png: %.svg
-	inkscape -D $< -e $@
+	inkscape -D $< -o $@
 
 clean:
 	rm $(OUTPUTS)
